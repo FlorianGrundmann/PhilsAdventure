@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{6CC02F66-0A28-C051-A1C3-40FF4B543937}</ProjectGuid>
+	<ProjectGuid>{286C8FCD-38A8-17FD-4739-F32565884DA8}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -67,11 +67,11 @@
      <Compile Include="Assets\Scripts\Character\Movement\Jumping.cs" />
      <Compile Include="Assets\Scripts\Character\Movement\Knockback.cs" />
      <Compile Include="Assets\Scripts\Character\Movement\Movement.cs" />
+     <Compile Include="Assets\Scripts\Character\Movement\Player.cs" />
      <Compile Include="Assets\Scripts\Character\Movement\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Character\Player\BoxPointer.cs" />
      <Compile Include="Assets\Scripts\Character\Player\HurtEnemyOnContact.cs" />
      <Compile Include="Assets\Scripts\Character\Player\InvincibleController.cs" />
-     <Compile Include="Assets\Scripts\Character\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character\Player\PlayerItems.cs" />
      <Compile Include="Assets\Scripts\Character\Player\PlayerSoundController.cs" />
