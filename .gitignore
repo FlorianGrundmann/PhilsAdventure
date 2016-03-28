@@ -73,3 +73,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.csproj
+Assembly-CSharp-Editor-vs.csproj
+*.csproj
+*.log
