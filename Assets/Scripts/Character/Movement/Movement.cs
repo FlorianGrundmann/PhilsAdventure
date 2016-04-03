@@ -3,39 +3,25 @@
 public class Movement : IMove
 {
     private Rigidbody2D body;
-    private float speed;
-    private Vector3 direction;
 
-    public Movement(Rigidbody2D body, float speed)
+    public Movement(Rigidbody2D body, float speed, Vector3 direction)
     {
         throw new System.NotImplementedException();
     }
 
     public float Speed
     {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     public Vector3 Direction
     {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
+        get;
+        private set;
     }
 
-    public void Jump()
+    public void Move()
     {
         throw new System.NotImplementedException();
     }

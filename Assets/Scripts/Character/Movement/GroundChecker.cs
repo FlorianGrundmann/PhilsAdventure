@@ -17,9 +17,5 @@ public class GroundChecker
         {
             throw new System.NotImplementedException();
         }
-
-        set
-        {
-        }
     }
 }

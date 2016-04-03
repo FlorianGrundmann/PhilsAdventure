@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 
-public class DoubleJumping : Jumping
+public class DoubleJumping : IMove
 {
     private bool alreadyDoubleJumped;
+    private Jumping jump;
 
-    public DoubleJumping(Rigidbody2D body, float speed):base(body,speed)
+    public DoubleJumping(Jumping jump)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Move()
     {
         throw new System.NotImplementedException();
     }

@@ -1,42 +1,17 @@
 ﻿using UnityEngine;
 
-public class Jumping : IJump
+public class Jumping : IMove
 {
-    private int speed;
+    private float jumpHeight;
     private Rigidbody2D body;
     private GroundChecker groundChecker;
-    private Vector3 direction;
 
-    public Jumping(Rigidbody2D body, float speed)
+    public Jumping(Rigidbody2D body, GroundChecker groundCheck, float jumpHeight)
     {
         throw new System.NotImplementedException();
     }
 
-    public Vector3 Direction
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
-
-    public float Speed
-    {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
-    }
-
-    public void Jump()
+    public void Move()
     {
         throw new System.NotImplementedException();
     }

@@ -2,10 +2,8 @@
 
 public class Knockback : IMove
 {
-    private float speed;
     private float time;
     private Rigidbody2D body;
-    private Vector3 direction;
 
     public Knockback(float speed, float time)
     {
@@ -14,29 +12,17 @@ public class Knockback : IMove
 
     public Vector3 Direction
     {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
+        get;
+        private set;
     }
 
     public float Speed
     {
-        get
-        {
-            throw new System.NotImplementedException();
-        }
-
-        set
-        {
-        }
+        get;
+        private set;
     }
 
-    public void Jump()
+    public void Move()
     {
         throw new System.NotImplementedException();
     }
