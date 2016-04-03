@@ -2,17 +2,21 @@
 
 public class Player : MonoBehaviour {
 
-    private InputManager input;
-
 	// Use this for initialization
 	void Start () {
-        input = new InputManager();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        input.Update();
-        if (input.RightPressed)
+        if (InputChecker.RightPressed)
             Debug.Log("Right button pressed");
-	}
+        if (InputChecker.CancelPressed)
+            Debug.Log("Cancel button pressed");
+        if (InputChecker.JumpPressed)
+            Debug.Log("Jump button pressed");
+        if (InputChecker.LeftPressed)
+            Debug.Log("Left button pressed");
+        if (InputChecker.MagicPressed)
+            Debug.Log("Magic button pressed");
+    }
 }
