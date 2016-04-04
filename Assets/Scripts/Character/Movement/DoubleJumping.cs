@@ -1,17 +1,30 @@
 ﻿using UnityEngine;
 
-public class DoubleJumping : IMove
+public class DoubleJumping : Jumping, IMove
 {
-    private bool alreadyDoubleJumped;
-    private Jumping jump;
-
-    public DoubleJumping(Jumping jump)
+    public bool AlreadyDoubleJumped
     {
-        throw new System.NotImplementedException();
+        get;
+        private set;
     }
 
-    public void Move()
+    public DoubleJumping(Rigidbody2D body, GroundChecker groundCheck, float jumpHeight):base(body, groundCheck, jumpHeight)
     {
-        throw new System.NotImplementedException();
+
+    }
+
+    public override void Move()
+    {
+        if (!this.IsJumping)
+        {
+            AlreadyDoubleJumped = false;
+            Jump();
+        }
+        else if (!AlreadyDoubleJumped)
+        {
+            AlreadyDoubleJumped = true;
+            Jump();
+        }
+            
     }
 }

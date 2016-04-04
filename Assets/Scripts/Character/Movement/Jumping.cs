@@ -7,6 +7,23 @@ public class Jumping : IMove
     private Rigidbody2D body;
     private GroundChecker groundChecker;
 
+
+    private bool isJumping;
+    protected bool IsJumping {
+        get
+        {
+           if (groundChecker.IsOnGround)
+                isJumping = false;
+
+           return isJumping;
+        }
+        private set
+        {
+            isJumping = value;
+        }
+    }
+
+
     public Jumping(Rigidbody2D body, GroundChecker groundCheck, float jumpHeight)
     {
         this.body = body;
@@ -14,15 +31,15 @@ public class Jumping : IMove
         this.jumpHeight = jumpHeight;
     }
 
-    public void Move()
+    public virtual void Move()
     {
         if (groundChecker.IsOnGround)
             Jump();
-
     }
 
-    private void Jump()
+    protected void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, jumpHeight);
+        IsJumping = true;
     }
 }
