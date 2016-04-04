@@ -2,20 +2,23 @@
 
 public class GroundChecker
 {
-    private Transform groundCheckerPos;
-    private int groundCheckRadius;
+    private Transform groundCheckerTransform;
+    private float groundCheckRadius;
     private LayerMask layerMaskGround;
 
-    public GroundChecker(Transform groundChecker, float groundCheckerRadius, string layerMaskGround)
+    public GroundChecker(Transform groundCheckerTransform, float groundCheckRadius, LayerMask layerMaskGround)
     {
-        throw new System.NotImplementedException();
+        this.groundCheckerTransform = groundCheckerTransform;
+        this.groundCheckRadius = groundCheckRadius;
+        this.layerMaskGround = layerMaskGround;
     }
 
-    public int IsOnGround
+    public bool IsOnGround
     {
         get
         {
-            throw new System.NotImplementedException();
+            Vector2 checkPos = new Vector2(groundCheckerTransform.position.x, groundCheckerTransform.position.y);
+            return Physics2D.OverlapCircle(checkPos, groundCheckRadius, layerMaskGround);
         }
     }
 }

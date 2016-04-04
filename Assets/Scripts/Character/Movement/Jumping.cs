@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Jumping : IMove
 {
@@ -8,11 +9,20 @@ public class Jumping : IMove
 
     public Jumping(Rigidbody2D body, GroundChecker groundCheck, float jumpHeight)
     {
-        throw new System.NotImplementedException();
+        this.body = body;
+        this.groundChecker = groundCheck;
+        this.jumpHeight = jumpHeight;
     }
 
     public void Move()
     {
-        throw new System.NotImplementedException();
+        if (groundChecker.IsOnGround)
+            Jump();
+
+    }
+
+    private void Jump()
+    {
+        body.velocity = new Vector2(body.velocity.x, jumpHeight);
     }
 }
