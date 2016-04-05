@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
-namespace Assets.Scripts.Character.Movement
+class MoveWithAnimation : MoveDecorator
 {
-    class MoveWithAnimation:MoveDecorator
+    private Animator animator;
+    public string AnimationBoolName { get; private set; }
+
+    public MoveWithAnimation(IMove move, Animator animator, string animationBoolName) : base(move)
     {
-        public MoveWithAnimation(IMove move, string animationName):base(move)
-        {
-            throw new NotImplementedException();
-        }
+        AnimationBoolName = animationBoolName;
+        this.animator = animator;
+    }
 
-        public string AnimationName
-        {
-            get;
-            private set;
-        }
-
-        public override void Move()
-        {
-            throw new NotImplementedException();
-        }
+    public override void Move()
+    {
+        animator.SetBool(AnimationBoolName, true);
     }
 }
+
