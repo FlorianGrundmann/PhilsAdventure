@@ -1,40 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
-public class Button : MonoBehaviour {
+public class Button : MonoBehaviour, Switchable {
 
 	private Animator animator;
 	
-	public bool release;
-	
+	public bool autoreleasing;
+    public GameObject switchableObjects; //Must be set in the Unity-Editor
+    
 	private bool pressed;
-	public bool Pressed{
-		get{return pressed;}
-		set{
-			pressed = value;
-			animator.SetBool("pressed", value);
-		}
-	}
-	
-	// Use this for initialization
-	void Start () {
+    public bool Switched
+    {
+        get
+        {
+            return pressed;
+        }
+
+        set
+        {
+            pressed = value;
+            animator.SetBool("pressed", value);
+        }
+    }
+
+    private void Start () {
 		animator = GetComponent<Animator> ();
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 		
 	}
 	
-	void OnTriggerEnter2D(Collider2D collider){
+	private void OnTriggerEnter2D(Collider2D collider){
 		if (collider.tag == "Player" || collider.tag == "Box") {
-			Pressed = true;
-		}
+			this.Switched = true;
+            switchAllObjects();
+        }
 	}
-	
-	void OnTriggerExit2D(Collider2D collider){
-		if (release && (collider.tag == "Player" || collider.tag == "Box")) {
-			Pressed = false;
-		}
+    
+    private void OnTriggerExit2D(Collider2D collider){
+		if (autoreleasing && (collider.tag == "Player" || collider.tag == "Box")) {
+			this.Switched = false;
+            switchAllObjects();
+        }
 	}
+
+    private void switchAllObjects()
+    {
+        foreach (Switchable switchableObj in switchableObjects.GetComponentsInChildren<SwitchableTile>())
+        {
+            switchableObj.Switched = !switchableObj.Switched;
+        }
+    }
 }
